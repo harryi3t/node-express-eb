@@ -28,13 +28,22 @@ integrations:
   deploy:
     - type: aws
       integrationName: aws-test
-      target: ebs_docker
+      target: eb_paas
+      application_name: node-test-paas-1
+      s3_bucket_name: node-test-bucket
+      env_name: nodetestapp-1
+      region: us-east-1
+    - type: aws
+      integrationName: aws-test
+      target: eb_paas
+      application_name: node-test-paas-2
+      s3_bucket_name: node-test-bucket
+      env_name: nodetestapp-1
+      region: us-east-1
+    - type: aws
+      integrationName: aws-test
+      target: eb_docker
       application_name: node-test-app-shippable
       s3_bucket_name: node-test-bucket
       env_name: nodetestapp-1
       region: us-east-1
-      branches:
-        only:
-          - master
-        except:
-          - test
